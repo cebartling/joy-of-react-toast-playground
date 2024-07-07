@@ -9,7 +9,7 @@ const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 function ToastPlayground() {
     const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
 
-    function handlePopToast() {
+    function handleOnClickPopToastButton() {
         console.log(variant);
     }
 
@@ -87,7 +87,7 @@ function ToastPlayground() {
                     <div
                         className={`${styles.inputWrapper} ${styles.radioWrapper}`}
                     >
-                        <Button onClick={handlePopToast}>Pop Toast!</Button>
+                        <Button onClick={handleOnClickPopToastButton}>Pop Toast!</Button>
                     </div>
                 </div>
             </div>
