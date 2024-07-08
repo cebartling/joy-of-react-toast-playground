@@ -3,16 +3,17 @@ import React, {useState} from 'react';
 import Button from '../Button';
 
 import styles from './ToastPlayground.module.css';
+import Toast from "../Toast";
 
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
     const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
     const [message, setMessage] = useState('');
+    const [isOpen, setIsOpen] = useState(false);
 
     function handleOnClickPopToastButton() {
-        console.log(variant);
-        console.log(message);
+        setIsOpen(true);
     }
 
     return (
@@ -21,6 +22,8 @@ function ToastPlayground() {
                 <img alt="Cute toast mascot" src="/toast.png"/>
                 <h1>Toast Playground</h1>
             </header>
+
+            {isOpen && <Toast message={message} variant={variant} handleClose={() => setIsOpen(false)}/>}
 
             <div className={styles.controlsWrapper}>
                 <div className={styles.row}>
