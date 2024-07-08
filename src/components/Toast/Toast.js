@@ -18,7 +18,7 @@ const ICONS_BY_VARIANT = {
     error: AlertOctagon,
 };
 
-function Toast({message, variant, handleClose}) {
+function Toast({children, variant, handleClose}) {
     const Icon = ICONS_BY_VARIANT[variant];
 
     function handleOnClickCloseButton() {
@@ -32,7 +32,7 @@ function Toast({message, variant, handleClose}) {
                 <Icon size={24}/>
             </div>
             <p className={styles.content}>
-                {message}
+                {children}
             </p>
             <button className={styles.closeButton} onClick={handleOnClickCloseButton}>
                 <X size={24}/>
