@@ -8,9 +8,11 @@ const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
     const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
+    const [message, setMessage] = useState('');
 
     function handleOnClickPopToastButton() {
         console.log(variant);
+        console.log(message);
     }
 
     return (
@@ -30,7 +32,8 @@ function ToastPlayground() {
                         Message
                     </label>
                     <div className={styles.inputWrapper}>
-                        <textarea id="message" className={styles.messageInput}/>
+                        <textarea id="message" className={styles.messageInput} value={message}
+                                  onChange={(e) => setMessage(e.currentTarget.value)}/>
                     </div>
                 </div>
 
@@ -39,46 +42,20 @@ function ToastPlayground() {
                     <div
                         className={`${styles.inputWrapper} ${styles.radioWrapper}`}
                     >
-                        <label htmlFor="variant-notice">
-                            <input
-                                id="variant-notice"
-                                type="radio"
-                                name="variant"
-                                checked={variant === VARIANT_OPTIONS[0]}
-                                onChange={() => setVariant(VARIANT_OPTIONS[0])}
-                            />
-                            notice
-                        </label>
-                        <label htmlFor="variant-warning">
-                            <input
-                                id="variant-warning"
-                                type="radio"
-                                name="variant"
-                                checked={variant === VARIANT_OPTIONS[1]}
-                                onChange={() => setVariant(VARIANT_OPTIONS[1])}
-                            />
-                            warning
-                        </label>
-                        <label htmlFor="variant-success">
-                            <input
-                                id="variant-success"
-                                type="radio"
-                                name="variant"
-                                checked={variant === VARIANT_OPTIONS[2]}
-                                onChange={() => setVariant(VARIANT_OPTIONS[2])}
-                            />
-                            success
-                        </label>
-                        <label htmlFor="variant-error">
-                            <input
-                                id="variant-error"
-                                type="radio"
-                                name="variant"
-                                checked={variant === VARIANT_OPTIONS[3]}
-                                onChange={() => setVariant(VARIANT_OPTIONS[3])}
-                            />
-                            error
-                        </label>
+                        {VARIANT_OPTIONS.map((option) => {
+                            return (
+                                <label key={option} htmlFor={`variant-${option}`}>
+                                    <input
+                                        id={`variant-${option}`}
+                                        type="radio"
+                                        name="variant"
+                                        checked={variant === option}
+                                        onChange={() => setVariant(option)}
+                                    />
+                                    {option}
+                                </label>
+                            );
+                        })}
                     </div>
                 </div>
 
