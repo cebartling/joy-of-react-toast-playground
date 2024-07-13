@@ -11,10 +11,13 @@ function ToastPlayground() {
     const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
     const [message, setMessage] = useState('');
     const [toasts, setToasts] = useState([]);
-    // const [isOpen, setIsOpen] = useState(false);
 
     function handleOnClickPopToastButton() {
-        setIsOpen(true);
+        setToasts([...toasts, {
+            id: crypto.randomUUID(),
+            variant,
+            message,
+        }]);
     }
 
     return (
@@ -24,9 +27,7 @@ function ToastPlayground() {
                 <h1>Toast Playground</h1>
             </header>
 
-            {/*{isOpen && <Toast  variant={variant} handleClose={() => setIsOpen(false)}>{message}</Toast>}*/}
-
-            <ToastShelf />
+            <ToastShelf toasts={toasts} />
 
             <div className={styles.controlsWrapper}>
                 <div className={styles.row}>
