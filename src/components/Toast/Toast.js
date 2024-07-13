@@ -23,7 +23,6 @@ function Toast({children, variant, handleClose}) {
 
     function handleOnClickCloseButton() {
         handleClose();
-
     }
 
     return (

@@ -12,12 +12,19 @@ function ToastPlayground() {
     const [message, setMessage] = useState('');
     const [toasts, setToasts] = useState([]);
 
-    function handleOnClickPopToastButton() {
+    function handleOnSubmit(e) {
+        e.preventDefault();
         setToasts([...toasts, {
             id: crypto.randomUUID(),
             variant,
             message,
         }]);
+        setVariant(VARIANT_OPTIONS[0]);
+        setMessage('');
+    }
+
+    function removeToast(id) {
+        setToasts(toasts.filter((toast) => toast.id !== id));
     }
 
     return (
@@ -27,9 +34,9 @@ function ToastPlayground() {
                 <h1>Toast Playground</h1>
             </header>
 
-            <ToastShelf toasts={toasts} />
+            <ToastShelf toasts={toasts} removeToast={removeToast}/>
 
-            <div className={styles.controlsWrapper}>
+            <form className={styles.controlsWrapper} onSubmit={handleOnSubmit}>
                 <div className={styles.row}>
                     <label
                         htmlFor="message"
@@ -73,10 +80,10 @@ function ToastPlayground() {
                     <div
                         className={`${styles.inputWrapper} ${styles.radioWrapper}`}
                     >
-                        <Button onClick={handleOnClickPopToastButton}>Pop Toast!</Button>
+                        <Button>Pop Toast!</Button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     );
 }
