@@ -178,7 +178,7 @@ In this exercise, we'll refactor our application to use the [“Provider compone
 - [X] Create a new component, `ToastProvider`, that will serve as the “keeper” for all toast-related state.
   - To generate a new component, you can use the “new-component” script! Try running `npm run new-component ToastProvider` in the terminal.
 - [X] Components that require the state should pull it from context with the `useContext` hook, rather than passing through props.
-- [ ] As we saw in the [“Provider Components” lesson](https://courses.joshwcomeau.com/joy-of-react/04-component-design/08.04-provider-component), we can also share _functions_ that allow consumers to alter the state. Consider making functions available that will create a new toast, or dismiss a specific toast.
+- [X] As we saw in the [“Provider Components” lesson](https://courses.joshwcomeau.com/joy-of-react/04-component-design/08.04-provider-component), we can also share _functions_ that allow consumers to alter the state. Consider making functions available that will create a new toast, or dismiss a specific toast.
 - [X] This is a “refactor” exercise. The user experience shouldn't change at all.
 
 ---
