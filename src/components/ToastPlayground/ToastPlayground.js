@@ -11,19 +11,14 @@ const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 function ToastPlayground() {
     const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
     const [message, setMessage] = useState('');
-    const {toasts, setToasts} = useContext(ToastContext);
+    const {createToast} = useContext(ToastContext);
 
     function handleOnSubmit(e) {
         e.preventDefault();
-        setToasts([...toasts, {
-            id: crypto.randomUUID(),
-            variant,
-            message,
-        }]);
+        createToast(variant, message);
         setVariant(VARIANT_OPTIONS[0]);
         setMessage('');
     }
-
 
 
     return (
@@ -33,7 +28,7 @@ function ToastPlayground() {
                 <h1>Toast Playground</h1>
             </header>
 
-            <ToastShelf />
+            <ToastShelf/>
 
             <form className={styles.controlsWrapper} onSubmit={handleOnSubmit}>
                 <div className={styles.row}>
