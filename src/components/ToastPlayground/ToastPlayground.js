@@ -3,14 +3,15 @@ import React, {useState} from 'react';
 import Button from '../Button';
 
 import styles from './ToastPlayground.module.css';
-import Toast from "../Toast";
+import ToastShelf from "../ToastShelf";
 
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
 function ToastPlayground() {
     const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
     const [message, setMessage] = useState('');
-    const [isOpen, setIsOpen] = useState(false);
+    const [toasts, setToasts] = useState([]);
+    // const [isOpen, setIsOpen] = useState(false);
 
     function handleOnClickPopToastButton() {
         setIsOpen(true);
@@ -23,7 +24,9 @@ function ToastPlayground() {
                 <h1>Toast Playground</h1>
             </header>
 
-            {isOpen && <Toast  variant={variant} handleClose={() => setIsOpen(false)}>{message}</Toast>}
+            {/*{isOpen && <Toast  variant={variant} handleClose={() => setIsOpen(false)}>{message}</Toast>}*/}
+
+            <ToastShelf />
 
             <div className={styles.controlsWrapper}>
                 <div className={styles.row}>
