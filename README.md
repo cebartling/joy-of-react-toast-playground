@@ -159,11 +159,11 @@ Some lessons that might help, from the course:
 
 **Acceptance Criteria:**
 
-- Instead of live-editing a single Toast instance, the playground should be used to push new toast messages onto a stack, rendered inside `ToastShelf` and shown in the corner of the page.
-- When “Pop Toast!” is clicked, the message/variant form controls should be reset to their default state (`message` should be an empty string, `variant` should be "notice").
-- Clicking the “×” button inside the toast should remove that specific toast (but leave the rest untouched).
-- A proper `<form>` tag should be used in the `ToastPlayground`. The toast should be created when submitting the form.
-- **There should be no key warnings in the console!** Keys should be unique, and you should not use the index.
+- [X] Instead of live-editing a single Toast instance, the playground should be used to push new toast messages onto a stack, rendered inside `ToastShelf` and shown in the corner of the page.
+- [X] When “Pop Toast!” is clicked, the message/variant form controls should be reset to their default state (`message` should be an empty string, `variant` should be "notice").
+- [X] Clicking the “×” button inside the toast should remove that specific toast (but leave the rest untouched).
+- [X] A proper `<form>` tag should be used in the `ToastPlayground`. The toast should be created when submitting the form.
+- [X] **There should be no key warnings in the console!** Keys should be unique, and you should not use the index.
 
 ---
 
@@ -175,11 +175,11 @@ In this exercise, we'll refactor our application to use the [“Provider compone
 
 **Acceptance Criteria:**
 
-- Create a new component, `ToastProvider`, that will serve as the “keeper” for all toast-related state.
-  - To generate a new component, you can use the “new-component” script! Try tunning `npm run new-component ToastProvider` in the terminal.
-- Components that require the state should pull it from context with the `useContext` hook, rather than passing through props.
-- As we saw in the [“Provider Components” lesson](https://courses.joshwcomeau.com/joy-of-react/04-component-design/08.04-provider-component), we can also share _functions_ that allow consumers to alter the state. Consider making functions available that will create a new toast, or dismiss a specific toast.
-- This is a “refactor” exercise. The user experience shouldn't change at all.
+- [X] Create a new component, `ToastProvider`, that will serve as the “keeper” for all toast-related state.
+  - To generate a new component, you can use the “new-component” script! Try running `npm run new-component ToastProvider` in the terminal.
+- [X] Components that require the state should pull it from context with the `useContext` hook, rather than passing through props.
+- [ ] As we saw in the [“Provider Components” lesson](https://courses.joshwcomeau.com/joy-of-react/04-component-design/08.04-provider-component), we can also share _functions_ that allow consumers to alter the state. Consider making functions available that will create a new toast, or dismiss a specific toast.
+- [X] This is a “refactor” exercise. The user experience shouldn't change at all.
 
 ---
 
