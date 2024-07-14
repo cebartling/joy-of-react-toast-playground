@@ -268,10 +268,10 @@ Let's imagine we reach out to an accessibility specialist, and they do us the fa
 
 **Acceptance Criteria:**
 
-- The `<ol>` should have the specified role / aria tags
-- The toast's content should be prefixed with the variant, using the `VisuallyHidden` component.
+- [X] The `<ol>` should have the specified role / aria tags
+- [X] The toast's content should be prefixed with the variant, using the `VisuallyHidden` component.
   - _NOTE:_ The diff above shows an _error_ toast, but the prefix should be dynamic, based on the variant.
-- The “Dismiss message” content in the close button should be moved to an `aria-label`. `aria-live` should also be set to "off".
+- [X] The “Dismiss message” content in the close button should be moved to an `aria-label`. `aria-live` should also be set to "off".
 
 ---
 
