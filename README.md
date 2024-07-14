@@ -216,8 +216,8 @@ That way, we aren't interrupting the user. They can read the messages in their o
 
 **Acceptance Criteria:**
 
-- Hitting the "Escape" key should dismiss all toasts
-- You'll want to do this with a `useEffect` hook, but it's up to you to decide which component should bear this responsibility.
+- [X] Hitting the "Escape" key should dismiss all toasts
+- [X] You'll want to do this with a `useEffect` hook, but it's up to you to decide which component should bear this responsibility.
 
 ### 5.2: Screen reader users
 
