@@ -5,6 +5,7 @@ import Button from '../Button';
 import styles from './ToastPlayground.module.css';
 import ToastShelf from "../ToastShelf";
 import {ToastContext} from "../ToastProvider";
+import {useEscapeKey} from "../../hooks/useEscapeKey.hook";
 
 const VARIANT_OPTIONS = ['notice', 'warning', 'success', 'error'];
 
@@ -12,22 +13,7 @@ function ToastPlayground() {
     const [variant, setVariant] = useState(VARIANT_OPTIONS[0]);
     const [message, setMessage] = useState('');
     const {createToast, removeAllToasts} = useContext(ToastContext);
-
-    useEffect(() => {
-        function handleOnKeyDown(e) {
-            if (e.code === 'Escape') {
-                removeAllToasts();
-            }
-        }
-
-        document.addEventListener('keydown', handleOnKeyDown);
-
-        return () => {
-            document.removeEventListener('keydown', handleOnKeyDown);
-        };
-    }, []);
-
-
+    useEscapeKey(removeAllToasts);
 
     function handleOnSubmit(e) {
         e.preventDefault();
