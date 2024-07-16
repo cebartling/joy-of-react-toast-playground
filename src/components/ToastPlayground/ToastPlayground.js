@@ -22,7 +22,6 @@ function ToastPlayground() {
         setMessage('');
     }
 
-
     return (
         <div className={styles.wrapper}>
             <header>
